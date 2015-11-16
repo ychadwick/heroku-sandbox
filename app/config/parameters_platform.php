@@ -4,7 +4,7 @@ if (!$relationships) {
     return;
 }
 
-$relationships = json_decode(base64_decode($relationships), true);
+$relationships = json_decode(base64_decode($relationships), TRUE);
 
 foreach ($relationships['database'] as $endpoint) {
     if (empty($endpoint['query']['is_master'])) {
@@ -20,5 +20,5 @@ foreach ($relationships['database'] as $endpoint) {
     $container->setParameter('database_path', '');
 }
 
-# Store session into /tmp.
+# Hack.
 ini_set('session.save_path', '/tmp/sessions');
