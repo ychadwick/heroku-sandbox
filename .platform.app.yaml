@@ -41,16 +41,14 @@ mounts:
 hooks:
     build: |
       rm web/app_dev.php
+      npm install
     deploy: |
       app/console --env=prod --symlink assets:install
       app/console --env=prod cache:clear
-      npm install
       gulp
 
 
-dependencies:
-    nodejs:
-      gulp: "3.9.0"
+
 
 # The configuration of scheduled execution.
 # see http://symfony.com/doc/current/components/console/introduction.html
