@@ -44,6 +44,10 @@ hooks:
       app/console --env=prod assetic:dump --no-debug
       app/console --env=prod cache:clear
 
+dependencies:
+    nodejs:
+      less: "2.5.3"
+
 # The configuration of scheduled execution.
 # see http://symfony.com/doc/current/components/console/introduction.html
 #crons:
