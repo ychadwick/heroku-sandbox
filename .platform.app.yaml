@@ -32,10 +32,6 @@ mounts:
     "/app/logs": "shared:files/logs"
     "/web/bundles": "shared:files/bundles"
     "/web/uploads": "shared:files/uploads"
-    "/web/css": "shared:files/css"
-    "/web/js": "shared:files/js"
-    "/web/font": "shared:files/font"
-    "/web/img": "shared:files/img"
 
 # The hooks that will be performed when the package is deployed.
 hooks:
