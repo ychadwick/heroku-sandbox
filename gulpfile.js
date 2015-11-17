@@ -63,7 +63,7 @@ gulp.task('fonts', function () {
             'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/fonts/fa/*',
             'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/fonts/fa4/*'
         ])
-        .pipe(copy('web/fonts/', {prefix: 4}));
+        .pipe(copy('web/fonts/', {prefix: 9}));
 });
 
 gulp.task('img', function () {
@@ -71,7 +71,7 @@ gulp.task('img', function () {
             'vendor/networking/init-cms-bundle/resources/public/img/icons/*',
             'vendor/networking/init-cms-bundle/resources/public/img/*'
         ])
-        .pipe(copy('web/img/', {prefix: 4}));
+        .pipe(copy('web/img/', {prefix: 6}));
 });
 
 gulp.task('jquery', function () {
