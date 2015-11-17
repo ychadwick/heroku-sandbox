@@ -31,17 +31,7 @@ gulp.task('less', function () {
         .pipe(sourcemaps.write('./maps/'))
         .pipe(gulp.dest('web/css/'));
 
-    gulp.src([
-            'web/css/networking_initcms_bootstrap',
-            'web/css/bootstrap.css'
-        ])
-        .pipe(concat('networking_initcms.css'))
-        .pipe(sourcemaps.init())
-        .pipe(sourcemaps.write('./maps/'))
-        .pipe(gulp.dest('web/css/'));
-
 });
-
 gulp.task('less_frontend', function () {
     gulp.src([
             'src/Application/Networking/InitCmsBundle/Resources/public/less/styles.less',
@@ -154,4 +144,4 @@ gulp.task('sandbox_js', function () {
 
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['less', 'less_frontend', 'fonts', 'img', 'jquery', 'bootstrapjs', 'networking_initcms', 'sandbox_js']);
+gulp.task('default', ['less', 'less_frontend', 'fonts', 'img', 'jquery', 'bootstrapjs', 'networking_initcms', 'sandbox_js', 'combine_admin_css']);
