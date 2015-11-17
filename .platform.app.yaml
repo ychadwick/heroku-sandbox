@@ -34,6 +34,8 @@ mounts:
     "/web/uploads": "shared:files/uploads"
     "/web/css": "shared:files/css"
     "/web/js": "shared:files/js"
+    "/web/font": "shared:files/font"
+    "/web/img": "shared:files/img"
 
 # The hooks that will be performed when the package is deployed.
 hooks:
@@ -41,9 +43,9 @@ hooks:
       rm web/app_dev.php
       npm install
     deploy: |
-      app/console --env=prod assets:install
-      app/console --env=prod assetic:dump --no-debug
+      app/console --env=prod --symlink assets:install
       app/console --env=prod cache:clear
+      gulp
 
 dependencies:
     nodejs:

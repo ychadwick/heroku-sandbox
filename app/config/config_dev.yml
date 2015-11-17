@@ -16,9 +16,6 @@ monolog:
             path:  %kernel.logs_dir%/%kernel.environment%.log
             level: debug
 
-assetic:
-    debug:          %kernel.debug%
-    use_controller: false
 
 services:
     twig.extension.debug:

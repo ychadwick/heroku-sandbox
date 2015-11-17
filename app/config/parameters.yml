@@ -3,9 +3,9 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: symfony
+    database_name: initcms_sandbox
     database_user: root
-    database_password: null
+    database_password: newo*higledy
     mailer_transport: mail
     mailer_host: null
     mailer_user: null

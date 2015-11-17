@@ -21,13 +21,7 @@ file that was distributed with this source code.
         <meta charset="UTF-8"/>
 
         {% block head_style %}
-            {# Override this block to add your own files! #}
-            {% stylesheets filter='less,?yui_css'
-            '@ApplicationNetworkingInitCmsBundle/Resources/public/less/styles.less'
-            '@ApplicationNetworkingInitCmsBundle/Resources/public/css/prettyPhoto.css'
-            output='css/styles.css' %}
-            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen"/>
-            {% endstylesheets %}
+            <link href="/css/styles.css" type="text/css" rel="stylesheet" media="screen"/>
         {% endblock head_style %}
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,17 +93,9 @@ file that was distributed with this source code.
     To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
     Otherwise the regeneration is done on every load in dev more with use_controller: true
      #}
-    {% javascripts
-    'http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/tooltip.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/*.js'
-    '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
-    '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
-    '@MopaBootstrapBundle/Resources/public/components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'
-    '@ApplicationNetworkingInitCmsBundle/Resources/public/js/jquery.prettyPhoto.js'
-    output='js/sandbox.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/sandbox.js"></script>
 {% endblock foot_script %}
 {% endblock body %}
 </body>
