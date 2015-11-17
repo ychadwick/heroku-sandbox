@@ -41,10 +41,10 @@ mounts:
 hooks:
     build: |
       rm web/app_dev.php
-      app/console --env=prod assets:install
       npm install
       gulp
     deploy: |
+      app/console --env=prod assets:install
       app/console --env=prod cache:clear
 
 

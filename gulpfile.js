@@ -10,16 +10,33 @@ var gulp = require('gulp'),
 
 gulp.task('less', function () {
     gulp.src([
-            'web/bundles/sonataadmin/css/vendor/select2/select2.css',
-            'web/bundles/sonataadmin/css/vendor/jqueryui/themes/base/jquery-ui.css',
-            'web/bundles/mopaboostrap/components/smalot-bootstrap-datetimepicker/build/build_standalone.less',
-            'vendor/networking/init-cms-bundle/resources/public/less/initcms_bootstrap.less',
-            'web/bundles/networkinginitcms/css/bootstrap-editable.css'
+            'vendor/networking/init-cms-bundle/resources/public/less/initcms_bootstrap.less'
         ])
-        .pipe(concat('networking_initcms.css'))
+        .pipe(concat('networking_initcms_bootstrap.css'))
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(minifyCSS())
+        .pipe(sourcemaps.write('./maps/'))
+        .pipe(gulp.dest('web/css/'));
+    gulp.src([
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/components/smalot-bootstrap-datetimepicker/build/build_standalone.less',
+            'vendor/sonata-project/admin-bundle/Resources/public/css/vendor/select2/select2.css',
+            'vendor/sonata-project/admin-bundle/Resources/public/css/vendor/jqueryui/themes/base/jquery-ui.css',
+            'vendor/networking/init-cms-bundle/resources/public/css/bootstrap-editable.css'
+        ])
+        .pipe(concat('bootstrap.css'))
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .pipe(minifyCSS())
+        .pipe(sourcemaps.write('./maps/'))
+        .pipe(gulp.dest('web/css/'));
+
+    gulp.src([
+            'web/css/networking_initcms_bootstrap',
+            'web/css/bootstrap.css'
+        ])
+        .pipe(concat('networking_initcms.css'))
+        .pipe(sourcemaps.init())
         .pipe(sourcemaps.write('./maps/'))
         .pipe(gulp.dest('web/css/'));
 
@@ -41,27 +58,28 @@ gulp.task('less_frontend', function () {
 
 gulp.task('fonts', function () {
     gulp.src(
-        ['web/bundles/mopabootstrap/fonts/bootstrap/*',
-            'web/bundles/mopabootstrap/fonts/fa/*',
-            'web/bundles/mopabootstrap/fonts/fa4/*'
+        [
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/fonts/bootstrap/*',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/fonts/fa/*',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/fonts/fa4/*'
         ])
         .pipe(copy('web/fonts/', {prefix: 4}));
 });
 
 gulp.task('img', function () {
     gulp.src([
-            'web/bundles/networkinginitcms/img/icons/*',
-            'web/bundles/networkinginitcms/img/*'
+            'vendor/networking/init-cms-bundle/resources/public/img/icons/*',
+            'vendor/networking/init-cms-bundle/resources/public/img/*'
         ])
         .pipe(copy('web/img/', {prefix: 4}));
 });
 
 gulp.task('jquery', function () {
     gulp.src([
-            'web/bundles/sonataadmin/vendor/jquery/dist/jquery.min.js',
-            'web/bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js',
-            'web/bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js',
-            'web/bundles/networkinginitcms/js/jquery.ui.touch-punch.min.js'
+            'vendor/sonata-project/admin-bundle/Resources/public/vendor/jquery/dist/jquery.min.js',
+            'vendor/sonata-project/admin-bundle/Resources/public/vendor/jqueryui/ui/minified/jquery-ui.min.js',
+            'vendor/sonata-project/admin-bundle/Resources/public/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js',
+            'vendor/networking/init-cms-bundle/resources/public/js/jquery.ui.touch-punch.min.js'
         ])
         .pipe(concat('jquery.js'))
         .pipe(sourcemaps.init())
@@ -72,19 +90,19 @@ gulp.task('jquery', function () {
 
 gulp.task('bootstrapjs', function () {
     gulp.src([
-            'web/bundles/mopabootstrap/bootstrap/js/tooltip.js',
-            'web/bundles/mopabootstrap/bootstrap/js/affix.js',
-            'web/bundles/mopabootstrap/bootstrap/js/alert.js',
-            'web/bundles/mopabootstrap/bootstrap/js/button.js',
-            'web/bundles/mopabootstrap/bootstrap/js/carousel.js',
-            'web/bundles/mopabootstrap/bootstrap/js/collapse.js',
-            'web/bundles/mopabootstrap/bootstrap/js/dropdown.js',
-            'web/bundles/mopabootstrap/bootstrap/js/modal.js',
-            'web/bundles/mopabootstrap/bootstrap/js/popover.js',
-            'web/bundles/mopabootstrap/bootstrap/js/scrollspy.js',
-            'web/bundles/mopabootstrap/bootstrap/js/tab.js',
-            'web/bundles/mopabootstrap/bootstrap/js/transition.js',
-            'web/bundles/networkinginitcms/js/bootstrap-editable.min.js'
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/tooltip.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/affix.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/alert.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/button.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/carousel.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/collapse.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/dropdown.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/modal.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/popover.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/scrollspy.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/tab.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/transition.js',
+            'vendor/networking/init-cms-bundle/resources/public/js/bootstrap-editable.min.js'
         ])
         .pipe(concat('bootstrap.js'))
         .pipe(sourcemaps.init())
@@ -95,12 +113,12 @@ gulp.task('bootstrapjs', function () {
 
 gulp.task('networking_initcms', function () {
     gulp.src([
-            'web/bundles/networkinginitcms/js/mopabootstrap-collection.js',
-            'web/bundles/mopabootstrap/components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.js',
-            'web/bundles/sonataadmin/vendor/select2/select2.min.js',
-            'web/bundles/sonataadmin/jquery/jquery.form.js',
-            'web/bundles/networkinginitcms/js/bootstrap-contextmenu.js',
-            'web/bundles/networkinginitcms/js/featherlight.js'
+            'vendor/networking/init-cms-bundle/resources/public/js/mopabootstrap-collection.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.js',
+            'vendor/sonata-project/admin-bundle/Resources/public/vendor/select2/select2.min.js',
+            'vendor/sonata-project/admin-bundle/Resources/public/jquery/jquery.form.js',
+            'vendor/networking/init-cms-bundle/resources/public/js/bootstrap-contextmenu.js',
+            'vendor/networking/init-cms-bundle/resources/public/js/featherlight.js'
         ])
         .pipe(concat('networking_initcms.js'))
         .pipe(sourcemaps.init())
@@ -111,21 +129,21 @@ gulp.task('networking_initcms', function () {
 
 gulp.task('sandbox_js', function () {
     gulp.src([
-            'web/bundles/mopabootstrap/bootstrap/js/tooltip.js',
-            'web/bundles/mopabootstrap/bootstrap/js/affix.js',
-            'web/bundles/mopabootstrap/bootstrap/js/alert.js',
-            'web/bundles/mopabootstrap/bootstrap/js/button.js',
-            'web/bundles/mopabootstrap/bootstrap/js/carousel.js',
-            'web/bundles/mopabootstrap/bootstrap/js/collapse.js',
-            'web/bundles/mopabootstrap/bootstrap/js/dropdown.js',
-            'web/bundles/mopabootstrap/bootstrap/js/modal.js',
-            'web/bundles/mopabootstrap/bootstrap/js/popover.js',
-            'web/bundles/mopabootstrap/bootstrap/js/scrollspy.js',
-            'web/bundles/mopabootstrap/bootstrap/js/tab.js',
-            'web/bundles/mopabootstrap/bootstrap/js/transition.js',
-            'web/bundles/mopabootstrap/js/mopabootstrap-subnav.js',
-            'web/bundles/mopabootstrap/js/mopabootstrap-collection.js',
-            'web/bundles/applicationnetworkinginitcms/js/jquery.prettyPhoto.js'
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/tooltip.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/affix.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/alert.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/button.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/carousel.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/collapse.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/dropdown.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/modal.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/popover.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/scrollspy.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/tab.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/transition.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/js/mopabootstrap-subnav.js',
+            'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/js/mopabootstrap-collection.js',
+            'src/Application/Networking/InitCmsBundle/Resources/publicjs/jquery.prettyPhoto.js'
         ])
         .pipe(concat('sandbox.js'))
         .pipe(sourcemaps.init())
