@@ -39,11 +39,16 @@ mounts:
 hooks:
     build: |
       rm web/app_dev.php
-      npm install -g less
+      npm install
     deploy: |
       app/console --env=prod assets:install
       app/console --env=prod assetic:dump --no-debug
       app/console --env=prod cache:clear
+
+dependencies:
+    nodejs:
+      bower: "1.6.5"
+      grunt-cli: "0.1.13"
 
 # The configuration of scheduled execution.
 # see http://symfony.com/doc/current/components/console/introduction.html
