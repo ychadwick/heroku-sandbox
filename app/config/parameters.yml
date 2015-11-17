@@ -5,10 +5,10 @@ parameters:
     database_port: null
     database_name: initcms_sandbox
     database_user: root
-    database_password: newo*higledy
+    database_password: null
     mailer_transport: mail
     mailer_host: null
     mailer_user: null
     mailer_password: null
-    locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
+    locale: en
