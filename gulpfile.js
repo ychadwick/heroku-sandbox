@@ -143,7 +143,7 @@ gulp.task('sandbox_js', function () {
             'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap/js/transition.js',
             'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/js/mopabootstrap-subnav.js',
             'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/js/mopabootstrap-collection.js',
-            'src/Application/Networking/InitCmsBundle/Resources/publicjs/jquery.prettyPhoto.js'
+            'src/Application/Networking/InitCmsBundle/Resources/public/js/jquery.prettyPhoto.js'
         ])
         .pipe(concat('sandbox.js'))
         .pipe(sourcemaps.init())
