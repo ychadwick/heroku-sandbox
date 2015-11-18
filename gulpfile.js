@@ -20,18 +20,20 @@ gulp.task('less', function () {
         .pipe(gulp.dest('web/css/'));
     gulp.src([
             'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/components/smalot-bootstrap-datetimepicker/build/build_standalone.less',
-            'vendor/sonata-project/admin-bundle/Resources/public/css/vendor/select2/select2.css',
+            'vendor/sonata-project/admin-bundle/Resources/public/vendor/select2/select2.css',
             'vendor/sonata-project/admin-bundle/Resources/public/css/vendor/jqueryui/themes/base/jquery-ui.css',
             'vendor/networking/init-cms-bundle/resources/public/css/bootstrap-editable.css'
         ])
+
         .pipe(concat('bootstrap.css'))
         .pipe(sourcemaps.init())
         .pipe(less())
-        .pipe(minifyCSS())
+        //.pipe(minifyCSS())
         .pipe(sourcemaps.write('./maps/'))
         .pipe(gulp.dest('web/css/'));
 
 });
+
 gulp.task('less_frontend', function () {
     gulp.src([
             'src/Application/Networking/InitCmsBundle/Resources/public/less/styles.less',
@@ -144,4 +146,4 @@ gulp.task('sandbox_js', function () {
 
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['less', 'less_frontend', 'fonts', 'img', 'jquery', 'bootstrapjs', 'networking_initcms', 'sandbox_js', 'combine_admin_css']);
+gulp.task('default', ['less', 'less_frontend', 'fonts', 'img', 'jquery', 'bootstrapjs', 'networking_initcms', 'sandbox_js']);
