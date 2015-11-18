@@ -65,7 +65,7 @@ class AppKernel extends Kernel
      */
     public function getCacheDir()
     {
-        $environment = getenv("PLATFORM_ENVIRONMEN");
+        $environment = getenv("PLATFORM_ENVIRONMENT");
 
         if (!$environment) {
             return parent::getCacheDir();
