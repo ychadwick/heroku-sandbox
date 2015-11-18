@@ -5,7 +5,7 @@
 name: php
 
 # The toolstack used to build the application.
-type: php
+type: php:5.5
 build:
     flavor: symfony
 
@@ -32,11 +32,12 @@ mounts:
     "/app/logs": "shared:files/logs"
     "/web/bundles": "shared:files/bundles"
     "/web/uploads": "shared:files/uploads"
+    "/tmp": "shared:files/tmp"
 
 # The hooks that will be performed when the package is deployed.
 hooks:
     build: |
-      rm web/app_dev.php
+#      rm web/app_dev.php
     deploy: |
       app/console --env=prod assets:install
       app/console --env=prod cache:clear
