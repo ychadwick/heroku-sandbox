@@ -174,8 +174,10 @@ sonata_media:
         server:
             path: http://%aws_bucket%.s3.eu-central-1.amazonaws.com
     providers:
-        image: sonata.media.filesystem.s3
-        file: sonata.media.filesystem.s3
+        image:
+          filesystem: sonata.media.filesystem.s3
+        file:
+          filesystem: sonata.media.filesystem.s3
     filesystem:
         s3:
             bucket:         %aws_bucket%
