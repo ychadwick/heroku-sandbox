@@ -1,24 +1,19 @@
 <?php
-$relationships = getenv("PLATFORM_RELATIONSHIPS");
-if (!$relationships) {
+$databaseUrl = getenv("CLEARDB_DATABASE_URL");
+if (!$databaseUrl) {
     return;
 }
 
-$relationships = json_decode(base64_decode($relationships), TRUE);
 
-foreach ($relationships['database'] as $endpoint) {
-    if (empty($endpoint['query']['is_master'])) {
-        continue;
-    }
+$dbopts = parse_url(getenv('CLEARDB_DATABASE_URL'));
 
-    $container->setParameter('database_driver', 'pdo_' . $endpoint['scheme']);
-    $container->setParameter('database_host', $endpoint['host']);
-    $container->setParameter('database_port', $endpoint['port']);
-    $container->setParameter('database_name', $endpoint['path']);
-    $container->setParameter('database_user', $endpoint['username']);
-    $container->setParameter('database_password', $endpoint['password']);
-    $container->setParameter('database_path', '');
-}
+
+$container->setParameter('database_driver', 'pdo_' . $dbopts['scheme']);
+$container->setParameter('database_host', $dbopts['host']);
+//$container->setParameter('database_port', $dbopts['port']);
+$container->setParameter('database_name', str_replace('/', '', $dbopts['path']));
+$container->setParameter('database_user', $dbopts['username']);
+$container->setParameter('database_password', $dbopts['password']);
+$container->setParameter('database_path', '');
 
 # Hack.
-ini_set('session.save_path', '/tmp/sessions');
