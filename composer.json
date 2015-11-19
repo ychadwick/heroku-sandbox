@@ -39,7 +39,8 @@
         "sensio/generator-bundle": "2.3.*",
         "jms/security-extra-bundle": "1.5.1",
         "networking/init-cms-bundle": "~2.7",
-        "aws/aws-sdk-php": "^3.0@dev"
+        "knplabs/knp-gaufrette-bundle": "master",
+        "aws/aws-sdk-php": "2.4.3"
     },
     "scripts": {
         "compile": [
