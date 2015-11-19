@@ -40,6 +40,10 @@
         "networking/init-cms-bundle": "~2.7"
     },
     "scripts": {
+        "compile": [
+            "mkdir app/cache app/logs",
+            "chmod -R 777 app/cache app/logs"
+        ],
         "post-root-package-install": [
             "SymfonyStandard\\Composer::hookRootPackageInstall"
         ],
