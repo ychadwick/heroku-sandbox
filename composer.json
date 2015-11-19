@@ -25,6 +25,7 @@
         "ext-mbstring": "*",
         "ext-intl": "*",
         "ext-gd": "*",
+        "ext-apcu": "*",
         "symfony/symfony": "2.7.*",
         "doctrine/orm": "2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
@@ -41,8 +42,8 @@
     },
     "scripts": {
         "compile": [
-            "mkdir app/cache app/logs",
-            "chmod -R 777 app/cache app/logs",
+            "mkdir app/cache app/logs web/uploads web/uploads/media",
+            "chmod -R 777 app/cache app/logs web/uploads/media",
             "php app/console assets:install"
         ],
         "post-root-package-install": [
