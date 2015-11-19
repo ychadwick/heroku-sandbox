@@ -12,6 +12,3 @@ parameters:
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
     locale: en
-    aws_access_key: 'AKIAIFLGHLYPRJR6WPFQ'
-    aws_secret_key: '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'
-    aws_bucket: 'heroku-sandbox-uploads'
