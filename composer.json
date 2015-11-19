@@ -40,7 +40,8 @@
         "jms/security-extra-bundle": "1.5.1",
         "networking/init-cms-bundle": "~2.7",
         "knplabs/knp-gaufrette-bundle": "master",
-        "amazonwebservices/aws-sdk-for-php": "~1.5"
+        "aws/aws-sdk-php": "2.4.3",
+        "amazonwebservices/aws-sdk-for-php": "master"
     },
     "scripts": {
         "compile": [

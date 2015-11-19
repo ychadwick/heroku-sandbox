@@ -19,3 +19,6 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
     locale: en
+    aws_access_key: 'AKIAIFLGHLYPRJR6WPFQ'
+    aws_secret_key: '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'
+    aws_bucket: 'heroku-sandbox-user-uploads'

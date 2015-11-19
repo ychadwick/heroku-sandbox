@@ -4,12 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9c400c5ac3cac37e5c0acb8437111cbd",
-    "content-hash": "f07a1a96da816008b8c8e6e7cde51e55",
+    "hash": "7f30220065e5a5c8ff1b0971b3f49021",
+    "content-hash": "f26103f4c179fcd4688f72f45f29cb14",
     "packages": [
         {
             "name": "amazonwebservices/aws-sdk-for-php",
-            "version": "1.6.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amazonwebservices/aws-sdk-for-php.git",
@@ -60,6 +60,72 @@
             ],
             "abandoned": "aws/aws-sdk-php",
             "time": "2014-10-15 20:05:19"
+        },
+        {
+            "name": "aws/aws-sdk-php",
+            "version": "2.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-sdk-php.git",
+                "reference": "4f995f07d7463d3694b451bb50934391b02596e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4f995f07d7463d3694b451bb50934391b02596e9",
+                "reference": "4f995f07d7463d3694b451bb50934391b02596e9",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": "~3.7.0",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.0",
+                "ext-openssl": "*",
+                "monolog/monolog": "1.4.*",
+                "phpunit/phpunit": "3.7.*",
+                "symfony/class-loader": "2.*",
+                "symfony/yaml": "2.*"
+            },
+            "suggest": {
+                "doctrine/cache": "Adds support for caching of credentials and responses",
+                "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+                "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+                "monolog/monolog": "Adds support for logging HTTP requests and responses",
+                "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Aws": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "AWS SDK for PHP",
+            "homepage": "http://aws.amazon.com/sdkforphp2",
+            "keywords": [
+                "amazon",
+                "aws",
+                "dynamodb",
+                "ec2",
+                "s3",
+                "sdk"
+            ],
+            "time": "2013-08-13 04:06:02"
         },
         {
             "name": "behat/transliterator",
@@ -1381,6 +1447,98 @@
                 "uploadable"
             ],
             "time": "2015-02-24 21:41:37"
+        },
+        {
+            "name": "guzzle/guzzle",
+            "version": "v3.7.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "b170b028c6bb5799640e46c8803015b0f9a45ed9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b170b028c6bb5799640e46c8803015b0f9a45ed9",
+                "reference": "b170b028c6bb5799640e46c8803015b0f9a45ed9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": ">=2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
+            },
+            "require-dev": {
+                "doctrine/cache": "*",
+                "monolog/monolog": "1.*",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "1.0.*",
+                "symfony/class-loader": "*",
+                "zendframework/zend-cache": "2.0.*",
+                "zendframework/zend-log": "2.0.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Tests": "tests/",
+                    "Guzzle": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2013-10-02 20:47:00"
         },
         {
             "name": "ibrows/annotation-reader",
@@ -3224,16 +3382,16 @@
         },
         {
             "name": "phpfastcache/phpfastcache",
-            "version": "3.0.18",
+            "version": "3.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/khoaofgod/phpfastcache.git",
-                "reference": "d746949095fce99c316dc7483bb58e094b0db80f"
+                "reference": "aeb7760b553c0185c91067bdb29c72ea3cbcbd27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/khoaofgod/phpfastcache/zipball/d746949095fce99c316dc7483bb58e094b0db80f",
-                "reference": "d746949095fce99c316dc7483bb58e094b0db80f",
+                "url": "https://api.github.com/repos/khoaofgod/phpfastcache/zipball/aeb7760b553c0185c91067bdb29c72ea3cbcbd27",
+                "reference": "aeb7760b553c0185c91067bdb29c72ea3cbcbd27",
                 "shasum": ""
             },
             "require": {
@@ -3276,7 +3434,7 @@
                 "redis",
                 "wincache"
             ],
-            "time": "2015-11-14 00:25:13"
+            "time": "2015-11-19 15:14:29"
         },
         {
             "name": "phpoption/phpoption",

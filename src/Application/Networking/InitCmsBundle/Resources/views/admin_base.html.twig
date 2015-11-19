@@ -16,8 +16,8 @@ file that was distributed with this source code.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% block stylesheets %}
-        <link href="https://heroku-sandbox-uploads.s3.eu-central-1.amazonaws.com/css/networking_initcms_bootstrap.css" type="text/css" rel="stylesheet" media="screen"/>
-        <link href="https://heroku-sandbox-uploads.s3.eu-central-1.amazonaws.com/css/bootstrap.css" type="text/css" rel="stylesheet" media="screen"/>
+        <link href="https://heroku-sandbox-assets.s3.amazonaws.com/css/networking_initcms_bootstrap.css" type="text/css" rel="stylesheet" media="screen"/>
+        <link href="https://heroku-sandbox-assets.s3.amazonaws.com/css/bootstrap.css" type="text/css" rel="stylesheet" media="screen"/>
         {% block content_css %}
             {% if content_css() %}
                 <link href="{{ asset(content_css()) }}" type="text/css" rel="stylesheet" media="screen"/>{% endif %}
@@ -26,8 +26,8 @@ file that was distributed with this source code.
               media="screen"/>
     {% endblock %}
     {% block javascripts %}
-        <script type="text/javascript" src="https://heroku-sandbox-uploads.s3.eu-central-1.amazonaws.com/js/jquery.js"></script>
-        <script type="text/javascript" src="https://heroku-sandbox-uploads.s3.eu-central-1.amazonaws.com/js/bootstrap.js"></script>
+        <script type="text/javascript" src="https://heroku-sandbox-assets.s3.amazonaws.com/js/jquery.js"></script>
+        <script type="text/javascript" src="https://heroku-sandbox-assets.s3.amazonaws.com/js/bootstrap.js"></script>
     {% endblock javascripts %}
 
     <title>
@@ -99,7 +99,7 @@ file that was distributed with this source code.
     <div id="end">&nbsp;</div>
 
 {% block before_body_end %}
-    <script type="text/javascript" src="https://heroku-sandbox-uploads.s3.eu-central-1.amazonaws.com/js/networking_initcms.js"></script>
+    <script type="text/javascript" src="https://heroku-sandbox-assets.s3.amazonaws.com/js/networking_initcms.js"></script>
     <script type="text/javascript">
         window.SONATA_CONFIG = {
             CONFIRM_EXIT: {% block confirm_exit %}{% if admin_pool is defined and admin_pool.getOption('confirm_exit') %}true{% else %}false{% endif %}{% endblock %},
