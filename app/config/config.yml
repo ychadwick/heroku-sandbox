@@ -182,4 +182,8 @@ sonata_media:
             encryption:     aes256 # can be aes256 or not set
             cache_control:  max-age=86400 # or any other
 
+        replicate:
+            master: sonata.media.adapter.filesystem.s3
+            slave: sonata.media.adapter.filesystem.local
+
 
