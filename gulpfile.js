@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 
 gulp.task('less', function () {
     gulp.src([
-            'vendor/networking/init-cms-bundle/resources/public/less/initcms_bootstrap.less'
+            'src/Application/Networking/InitCmsBundle/Resources/public/less/initcms_bootstrap.less'
         ])
         .pipe(concat('networking_initcms_bootstrap.css'))
         .pipe(sourcemaps.init())
@@ -28,7 +28,7 @@ gulp.task('less', function () {
         .pipe(concat('bootstrap.css'))
         .pipe(sourcemaps.init())
         .pipe(less())
-        //.pipe(minifyCSS())
+        .pipe(minifyCSS())
         .pipe(sourcemaps.write('./maps/'))
         .pipe(gulp.dest('web/css/'));
 
@@ -56,6 +56,11 @@ gulp.task('fonts', function () {
             'vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/fonts/fa4/*'
         ])
         .pipe(copy('web/fonts/', {prefix: 9}));
+    gulp.src(
+        [
+            'vendor/networking/init-cms-bundle/Resources/public/font/*'
+        ])
+        .pipe(copy('web/fonts/', {prefix: 6}));
 });
 
 gulp.task('img', function () {

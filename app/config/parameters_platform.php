@@ -16,4 +16,12 @@ $container->setParameter('database_user', $dbopts['user']);
 $container->setParameter('database_password', $dbopts['pass']);
 $container->setParameter('database_path', '');
 
+$awsBucket = getenv('AWS_BUCKET');
+$awsAccessKey = getenv('AWS_ACCESS_KEY_ID');
+$awsSecretKey = getenv('AWS_SECRET_ACCESS_KEY');
+
+$container->setParameter('aws_bucket', $awsBucket);
+$container->setParameter('aws_access_key', $awsAccessKey);
+$container->setParameter('aws_secret_key', $awsSecretKey);
+
 # Hack.
