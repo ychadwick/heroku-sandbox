@@ -172,7 +172,7 @@ sonata_user:
 sonata_media:
     cdn:
         server:
-            path: http://%aws_bucket%.s3.amazonaws.com/uploads/media
+            path: https://d2g41utmyvfa5z.cloudfront.net/uploads/media
     providers:
         image:
           filesystem: sonata.media.filesystem.s3
